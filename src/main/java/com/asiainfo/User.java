@@ -7,6 +7,8 @@ import java.util.Map;
 
 public class User {
 	private String name;
+	private int age;
+	private Car car;
 	private List<Map<String, Object>> list;
 	
 	public User() {
@@ -23,6 +25,22 @@ public class User {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public Car getCar() {
+		return car;
+	}
+
+	public void setCar(Car car) {
+		this.car = car;
 	}
 
 	public List<Map<String, Object>> getList() {
