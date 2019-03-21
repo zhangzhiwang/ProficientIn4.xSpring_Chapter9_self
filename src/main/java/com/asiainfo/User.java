@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class User {
 	private String name;
+	private String addr;
 	private int age;
 	private Car car;
 	private List<Map<String, Object>> list;
@@ -18,6 +19,12 @@ public class User {
 		map.put("name", "a");
 		map.put("age", 1);
 		list.add(map);
+	}
+
+	public User(String name, int age) {
+		super();
+		this.name = name;
+		this.age = age;
 	}
 
 	public String getName() {
@@ -60,6 +67,14 @@ public class User {
 		this.user = user;
 	}
 
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+
 	public void met1(String name) {
 		System.out.println("hello1 " + name);
 	}
@@ -74,6 +89,11 @@ public class User {
 
 	public void met4(String... args) {
 		System.out.println("args.length=" + args.length);
+	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", age=" + age + ", car=" + car + ", list=" + list + ", user=" + user + "]";
 	}
 
 }
