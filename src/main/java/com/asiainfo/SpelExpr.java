@@ -1,5 +1,11 @@
 package com.asiainfo;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.expression.EvaluationContext;
 import org.springframework.expression.ExpressionParser;
 import org.springframework.expression.spel.standard.SpelExpressionParser;
@@ -14,7 +20,7 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 public class SpelExpr {
 	public static void main(String[] args) {
 		// 文本字符解析
-//		ExpressionParser expressionParser = new SpelExpressionParser();
+		ExpressionParser expressionParser = new SpelExpressionParser();
 //		System.out.println(expressionParser.parseExpression("'hello'").getValue());
 //		System.out.println(expressionParser.parseExpression("\"hello\"").getValue());
 //		System.out.println(expressionParser.parseExpression("\"1.1\"").getValue());
@@ -38,16 +44,46 @@ public class SpelExpr {
 //		System.out.println(name);
 //		System.out.println(carBrand);
 		
-		// 数组、集合类型解析
+		// 变量
+//		User user = new User();
+//		EvaluationContext evaluationContext = new StandardEvaluationContext(user);
+//		System.out.println(user.getName());
+//		evaluationContext.setVariable("name2", "aaa");
+//		expressionParser.parseExpression("name=#name2").getValue(evaluationContext);
+//		System.out.println(user.getName());
 		
+		// 集合过滤
+		EvaluationContext evaluationContext = new StandardEvaluationContext();
+//		Map<String, Integer> map = new HashMap<String, Integer>();
+//		map.put("a", 1);
+//		map.put("b", 2);
+//		map.put("c", 3);
+//		evaluationContext.setVariable("mapParam", map);
+//		Map<String, Integer> resultMap = (Map<String, Integer>) expressionParser.parseExpression("#mapParam.$[value>1]").getValue(evaluationContext);
+//		System.out.println(resultMap);
 		
+//		List<Integer> list = new ArrayList<Integer>();
+//		list.add(1);
+//		list.add(2);
+//		list.add(3);
+//		evaluationContext.setVariable("listParam", list);
+//		List<Integer> resultList = (List<Integer>) expressionParser.parseExpression("#listParam.?[#this>1]").getValue(evaluationContext);
+
+		// 集合转换
+//		List<Integer> list = new ArrayList<Integer>();
+//		list.add(1);
+//		list.add(2);
+//		list.add(3);
+//		evaluationContext.setVariable("listParam", list);
+//		List<Integer> resultList = (List<Integer>) expressionParser.parseExpression("#listParam.![#this+1]").getValue(evaluationContext);
+//		System.out.println(resultList);
 		
-		
-		
-		
-		
-		
-		
-		
+		Map<String, Integer> map = new LinkedHashMap<String, Integer>();
+		map.put("a", 1);
+		map.put("b", 2);
+		map.put("c", 3);
+		evaluationContext.setVariable("mapParam", map);
+		List<Integer> resultMap = (List<Integer>) expressionParser.parseExpression("#mapParam.![value+1]").getValue(evaluationContext);
+		System.out.println(resultMap);
 	}
 }
